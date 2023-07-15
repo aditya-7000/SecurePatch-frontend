@@ -6,7 +6,8 @@ import Web3 from 'web3';
 import $ from 'jquery';
 import 'datatables.net';
 import Address from './Address';
-import { Web3Storage } from 'https://cdn.jsdelivr.net/npm/web3.storage/dist/bundle.esm.min.js';
+// import { Web3Storage } from 'https://cdn.jsdelivr.net/npm/web3.storage/dist/bundle.esm.min.js';
+import { Web3Storage } from 'web3.storage';
 
 const UploadButton = ({ onClick }) => {
   const fileInputRef = useRef(null);
@@ -180,5 +181,8 @@ const DevPatchRequests = () => {
     </>
   );
 };
+
+
+
 
 export default DevPatchRequests;
