@@ -20,8 +20,8 @@ import Address from './Address';
 
 
 const MyUploads = () => {
-    const [account, setAccount] = useState('');
-    const [contractdata, setContractdata] = useState({});
+    // const [account, setAccount] = useState('');
+    // const [contractdata, setContractdata] = useState({});
     const [data, setData] = useState([]);
     
 
@@ -29,13 +29,14 @@ const MyUploads = () => {
         let { ethereum } = window;
 
         async function Connection() {
-            let accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-            setAccount(accounts[0]);
+            await ethereum.request({ method: 'eth_requestAccounts' });
+            // let accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            // setAccount(accounts[0]);
             const web3 = new Web3(window.ethereum);
 
             let contract = new web3.eth.Contract(ABI, Address);
 
-            setContractdata(contract);
+            // setContractdata(contract);
 
             let data = await contract.methods.getUploads().call();
             setData(data.map((item) => ({ ...item, link: null })).reverse());
@@ -55,12 +56,7 @@ const MyUploads = () => {
     }, []);
 
 
-    const handleApprove = async (index) => {
-
-        await contractdata.methods.putApproved(index).send({ from: account });
-        window.location.reload(true);
-    };
-
+    
 
     return (
         <>
@@ -93,7 +89,7 @@ const MyUploads = () => {
                                         <td>{item.datetime}</td>
                                         
                                         
-                                        <td><a href={`https://dweb.link/ipfs/${item.cid}`} target="_blank">{`dweb.link/ipfs/${item.cid}`}</a></td>
+                                        <td><a href={`https://dweb.link/ipfs/${item.cid}`} target="_blank" rel="noreferrer" >{`dweb.link/ipfs/${item.cid}`}</a></td>
 
                                         <td>
                                             {item.status}

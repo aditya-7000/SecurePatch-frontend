@@ -122,8 +122,8 @@ const App = () => {
   const handleLogin = async (email, password) => {
     try {
       const response = await axios.post('http://localhost:5000/api/login', { email, password });
-      const { token, role } = response.data;
-
+      const {  role } = response.data;
+      
       sessionStorage.setItem('role', role);
       setRole(role);
     } catch (error) {

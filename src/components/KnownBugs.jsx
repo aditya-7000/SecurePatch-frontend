@@ -7,22 +7,23 @@ import 'datatables.net';
 import Address from './Address';
 
 const KnownBugs = () => {
-  const [account, setAccount] = useState('');
-  const [contractdata, setContractdata] = useState({});
+  // const [account, setAccount] = useState('');
+  // const [contractdata, setContractdata] = useState({});
   const [data, setData] = useState([]);
 
   useEffect(() => {
     let { ethereum } = window;
 
     async function Connection() {
-      let accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      setAccount(accounts[0]);
+      await ethereum.request({ method: 'eth_requestAccounts' });
+      // let accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      // setAccount(accounts[0]);
       const web3 = new Web3(window.ethereum);
 
       
       let contract = new web3.eth.Contract(ABI, Address);
 
-      setContractdata(contract);
+      // setContractdata(contract);
 
       let bugsData = await contract.methods.getBugs().call();
       setData(bugsData);

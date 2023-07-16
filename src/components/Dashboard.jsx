@@ -105,7 +105,7 @@ const Dashboard = () => {
                                         <td>{item.datetime}</td>
                                         <td>{item.patch.bugids.toString()}</td>
                                         <td>{item.patch.description}</td>
-                                        <td><a href={`https://dweb.link/ipfs/${item.cid}`} target="_blank">{`dweb.link/ipfs/${item.cid}`}</a></td>
+                                        <td><a href={`https://dweb.link/ipfs/${item.cid}`} target="_blank" rel="noreferrer">{`dweb.link/ipfs/${item.cid}`}</a></td>
 
                                         <td id={data.length-index-1}>
                                             {item.actioncomplete ?  (

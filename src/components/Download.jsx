@@ -5,8 +5,8 @@ import Web3 from 'web3';
 import Address from './Address';
 
 const Deploy = () => {
-  const [account, setAccount] = useState('');
-  const [contractdata, setContractdata] = useState({});
+  // const [account, setAccount] = useState('');
+  // const [contractdata, setContractdata] = useState({});
   const [data, setData] = useState([]);
   const [selectedVersion, setSelectedVersion] = useState('');
   const [error, setError] = useState(null);
@@ -16,12 +16,13 @@ const Deploy = () => {
 
     async function fetchData() {
       try {
-        let accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-        setAccount(accounts[0]);
+        await ethereum.request({ method: 'eth_requestAccounts' });
+        // let accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        // setAccount(accounts[0]);
         const web3 = new Web3(window.ethereum);
 
         let contract = new web3.eth.Contract(ABI, Address);
-        setContractdata(contract);
+        // setContractdata(contract);
 
         let fetchedData = await contract.methods.getDeployed().call();
         let reversedData = [...fetchedData].reverse();
@@ -64,7 +65,7 @@ const Deploy = () => {
                         type="button"
                         onClick={() => handleAccordionClick(item.version)}
                       >
-                        {index==0?"(Latest Release) ":""}
+                        {index===0?"(Latest Release) ":""}
                         Version 
                         {" "+item.version}
                       </button>
