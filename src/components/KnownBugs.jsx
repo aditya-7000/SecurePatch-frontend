@@ -28,7 +28,7 @@ const KnownBugs = () => {
       let bugsData = await contract.methods.getBugs().call();
       setData(bugsData);
 
-      console.log(bugsData);
+      
 
       $(function () {
         $('#bugtable').DataTable();
@@ -40,7 +40,7 @@ const KnownBugs = () => {
 
     Connection();
 
-    console.log('connection');
+    
   }, []);
 
   return (

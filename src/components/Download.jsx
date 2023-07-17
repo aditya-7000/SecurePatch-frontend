@@ -28,7 +28,7 @@ const Deploy = () => {
         let reversedData = [...fetchedData].reverse();
         setData(reversedData);
 
-        console.log(reversedData);
+        
       } catch (error) {
         setError('Error fetching data');
         console.error(error);
@@ -37,7 +37,7 @@ const Deploy = () => {
 
     fetchData();
     
-    console.log('connection');
+    
   }, []);
 
   const handleAccordionClick = (version) => {

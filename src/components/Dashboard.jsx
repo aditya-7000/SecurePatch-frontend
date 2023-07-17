@@ -32,7 +32,7 @@ const Dashboard = () => {
             let data = await contract.methods.getUploads().call();
             setData(data.map((item) => ({ ...item, link: null })).reverse());
 
-            console.log(data);
+            
 
             $(function () {
                 $('#patchtable').DataTable();
@@ -44,7 +44,7 @@ const Dashboard = () => {
         Connection();
         setTransactionStatus('No transaction ongoing.');
 
-        console.log('connection');
+        
     }, []);
 
 

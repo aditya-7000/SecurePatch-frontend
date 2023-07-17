@@ -55,9 +55,7 @@ const DevPatchRequests = () => {
       let bugs = await contract.methods.getBugs().call();
       setData(patchData.map((item) => ({ ...item, link: null })).reverse());
       setBugdata(bugs.map((item) => ({ ...item, link: null })));
-      console.log(patchData);
-      console.log(bugs);
-
+      
       $(function () {
         $('#patchtable').DataTable();
       });
@@ -71,7 +69,7 @@ const DevPatchRequests = () => {
     Connection();
     setTransactionStatus('No transaction ongoing.');
 
-    console.log('connection');
+    
   }, []);
 
   const handleUpload = async (item, files, index) => {
